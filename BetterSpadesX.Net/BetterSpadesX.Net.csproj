@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45234B77-7AF6-4F79-80F3-8ADE455176EA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BetterSpades</RootNamespace>
+    <AssemblyName>BetterSpadesX.Net</AssemblyName>
+    <StartupObject>BetterSpades.Net.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="cardObjects.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="card_backs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>card_backs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="card_defaultset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>card_defaultset.resx</DependentUpon>
+    </Compile>
+    <Compile Include="card_romanset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>card_romanset.resx</DependentUpon>
+    </Compile>
+    <Compile Include="normal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>normal.resx</DependentUpon>
+    </Compile>
+    <Compile Include="formMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formMainForm.designer.cs">
+      <DependentUpon>formMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="GraphicCards.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GraphicCards.Designer.cs">
+      <DependentUpon>GraphicCards.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="card_backs.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>card_backs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="card_defaultset.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>card_defaultset.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="card_romanset.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>card_romanset.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="normal.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>normal.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formMainForm.resx">
+      <DependentUpon>formMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources NeroSet\01c.bmp" />
+    <Content Include="Resources NeroSet\01d.bmp" />
+    <Content Include="Resources NeroSet\01h.bmp" />
+    <Content Include="Resources NeroSet\01s.bmp" />
+    <Content Include="Resources NeroSet\02c.bmp" />
+    <Content Include="Resources NeroSet\02d.bmp" />
+    <Content Include="Resources NeroSet\02h.bmp" />
+    <Content Include="Resources NeroSet\02s.bmp" />
+    <Content Include="Resources NeroSet\03c.bmp" />
+    <Content Include="Resources NeroSet\03d.bmp" />
+    <Content Include="Resources NeroSet\03h.bmp" />
+    <Content Include="Resources NeroSet\03s.bmp" />
+    <Content Include="Resources NeroSet\04c.bmp" />
+    <Content Include="Resources NeroSet\04d.bmp" />
+    <Content Include="Resources NeroSet\04h.bmp" />
+    <Content Include="Resources NeroSet\04s.bmp" />
+    <Content Include="Resources NeroSet\05c.bmp" />
+    <Content Include="Resources NeroSet\05d.bmp" />
+    <Content Include="Resources NeroSet\05h.bmp" />
+    <Content Include="Resources NeroSet\05s.bmp" />
+    <Content Include="Resources NeroSet\06c.bmp" />
+    <Content Include="Resources NeroSet\06d.bmp" />
+    <Content Include="Resources NeroSet\06h.bmp" />
+    <Content Include="Resources NeroSet\06s.bmp" />
+    <Content Include="Resources NeroSet\07c.bmp" />
+    <Content Include="Resources NeroSet\07d.bmp" />
+    <Content Include="Resources NeroSet\07h.bmp" />
+    <Content Include="Resources NeroSet\07s.bmp" />
+    <Content Include="Resources NeroSet\08c.bmp" />
+    <Content Include="Resources NeroSet\08d.bmp" />
+    <Content Include="Resources NeroSet\08h.bmp" />
+    <Content Include="Resources NeroSet\08s.bmp" />
+    <Content Include="Resources NeroSet\09c.bmp" />
+    <Content Include="Resources NeroSet\09d.bmp" />
+    <Content Include="Resources NeroSet\09h.bmp" />
+    <Content Include="Resources NeroSet\09s.bmp" />
+    <Content Include="Resources NeroSet\10c.bmp" />
+    <Content Include="Resources NeroSet\10d.bmp" />
+    <Content Include="Resources NeroSet\10h.bmp" />
+    <Content Include="Resources NeroSet\10s.bmp" />
+    <Content Include="Resources NeroSet\11c.bmp" />
+    <Content Include="Resources NeroSet\11d.bmp" />
+    <Content Include="Resources NeroSet\11h.bmp" />
+    <Content Include="Resources NeroSet\11s.bmp" />
+    <Content Include="Resources NeroSet\12c.bmp" />
+    <Content Include="Resources NeroSet\12d.bmp" />
+    <Content Include="Resources NeroSet\12h.bmp" />
+    <Content Include="Resources NeroSet\12s.bmp" />
+    <Content Include="Resources NeroSet\13c.bmp" />
+    <Content Include="Resources NeroSet\13d.bmp" />
+    <Content Include="Resources NeroSet\13h.bmp" />
+    <Content Include="Resources NeroSet\13s.bmp" />
+    <Content Include="Resources\01c.bmp" />
+    <Content Include="Resources\01d.bmp" />
+    <Content Include="Resources\01h.bmp" />
+    <Content Include="Resources\01s.bmp" />
+    <Content Include="Resources\02c.bmp" />
+    <Content Include="Resources\02d.bmp" />
+    <Content Include="Resources\02h.bmp" />
+    <Content Include="Resources\02s.bmp" />
+    <Content Include="Resources\03c.bmp" />
+    <Content Include="Resources\03d.bmp" />
+    <Content Include="Resources\03h.bmp" />
+    <Content Include="Resources\03s.bmp" />
+    <Content Include="Resources\04c.bmp" />
+    <Content Include="Resources\04d.bmp" />
+    <Content Include="Resources\04h.bmp" />
+    <Content Include="Resources\04s.bmp" />
+    <Content Include="Resources\05c.bmp" />
+    <Content Include="Resources\05d.bmp" />
+    <Content Include="Resources\05h.bmp" />
+    <Content Include="Resources\05s.bmp" />
+    <Content Include="Resources\06c.bmp" />
+    <Content Include="Resources\06d.bmp" />
+    <Content Include="Resources\06h.bmp" />
+    <Content Include="Resources\06s.bmp" />
+    <Content Include="Resources\07c.bmp" />
+    <Content Include="Resources\07d.bmp" />
+    <Content Include="Resources\07h.bmp" />
+    <Content Include="Resources\07s.bmp" />
+    <Content Include="Resources\08c.bmp" />
+    <Content Include="Resources\08d.bmp" />
+    <Content Include="Resources\08h.bmp" />
+    <Content Include="Resources\08s.bmp" />
+    <Content Include="Resources\09c.bmp" />
+    <Content Include="Resources\09d.bmp" />
+    <Content Include="Resources\09h.bmp" />
+    <Content Include="Resources\09s.bmp" />
+    <Content Include="Resources\10c.bmp" />
+    <Content Include="Resources\10d.bmp" />
+    <Content Include="Resources\10h.bmp" />
+    <Content Include="Resources\10s.bmp" />
+    <Content Include="Resources\11c.bmp" />
+    <Content Include="Resources\11d.bmp" />
+    <Content Include="Resources\11h.bmp" />
+    <Content Include="Resources\11s.bmp" />
+    <Content Include="Resources\12c.bmp" />
+    <Content Include="Resources\12d.bmp" />
+    <Content Include="Resources\12h.bmp" />
+    <Content Include="Resources\12s.bmp" />
+    <Content Include="Resources\13c.bmp" />
+    <Content Include="Resources\13d.bmp" />
+    <Content Include="Resources\13h.bmp" />
+    <Content Include="Resources\13s.bmp" />
+    <None Include="Resources\bottom07.bmp" />
+    <None Include="Resources\bottom06.bmp" />
+    <None Include="Resources\bottom05.bmp" />
+    <None Include="Resources\bottom04.bmp" />
+    <None Include="Resources\bottom02.bmp" />
+    <None Include="Resources\bottom01.bmp" />
+    <None Include="Resources\back8.bmp" />
+    <None Include="Resources\Back7.bmp" />
+    <None Include="Resources\Back6.bmp" />
+    <None Include="Resources\Back5.bmp" />
+    <None Include="Resources\Back2.bmp" />
+    <None Include="Resources\Back1.bmp" />
+    <None Include="Resources\CardMask.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+</Project>
