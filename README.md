@@ -16,7 +16,7 @@ Requirements:
 
 
 Future:
-1. I will probably move these to .Net 6 if I have time.
+COMPLETED ~~1. I will probably move these to .Net 6 if I have time.
 
 How to use it:
 1. Load it in Visual Studio
