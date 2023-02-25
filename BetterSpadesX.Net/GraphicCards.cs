@@ -167,7 +167,7 @@ namespace BetterSpades.Net {
         }
     }
 
-    public partial class GfxCardTable : System.Windows.Forms.PictureBox {
+    public partial class GraphicsCardTable : System.Windows.Forms.PictureBox {
 
         private CardTable ftable = new CardTable();
 
@@ -177,7 +177,7 @@ namespace BetterSpades.Net {
 
 
 
-        public GfxCardTable() {
+        public GraphicsCardTable() {
             InitializeComponent();
         }
 

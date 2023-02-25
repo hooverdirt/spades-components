@@ -35,7 +35,7 @@ namespace BetterSpades.Net
         #endregion
     }
    
-    partial class GfxCardTable
+    partial class GraphicsCardTable
     {
         /// <summary> 
         /// Required designer variable.

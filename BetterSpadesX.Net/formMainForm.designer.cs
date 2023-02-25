@@ -52,7 +52,7 @@ namespace BetterSpades.Net
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tghCardTable1 = new BetterSpades.Net.GfxCardTable();
+            this.tghCardTable1 = new BetterSpades.Net.GraphicsCardTable();
             this.tghCardHand4 = new BetterSpades.Net.GraphicsCardHand();
             this.tghCardHand3 = new BetterSpades.Net.GraphicsCardHand();
             this.tghCardHand2 = new BetterSpades.Net.GraphicsCardHand();
@@ -451,7 +451,7 @@ namespace BetterSpades.Net
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Button button2;
-        private GfxCardTable tghCardTable1;
+        private GraphicsCardTable tghCardTable1;
         private System.Windows.Forms.ListBox listBox5;
     }
 }
