@@ -1,22 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{45234B77-7AF6-4F79-80F3-8ADE455176EA}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BetterSpades</RootNamespace>
-    <AssemblyName>BetterSpadesX.Net</AssemblyName>
     <StartupObject>BetterSpades.Net.Program</StartupObject>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -32,102 +19,14 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
   <ItemGroup>
-    <Compile Include="cardObjects.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="card_backs.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>card_backs.resx</DependentUpon>
-    </Compile>
-    <Compile Include="card_defaultset.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>card_defaultset.resx</DependentUpon>
-    </Compile>
-    <Compile Include="card_romanset.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>card_romanset.resx</DependentUpon>
-    </Compile>
-    <Compile Include="normal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>normal.resx</DependentUpon>
-    </Compile>
-    <Compile Include="formMainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formMainForm.designer.cs">
-      <DependentUpon>formMainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="GraphicCards.cs">
+    <Compile Update="GraphicCards.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GraphicCards.Designer.cs">
-      <DependentUpon>GraphicCards.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="card_backs.resx">
-      <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>card_backs.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="card_defaultset.resx">
-      <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>card_defaultset.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="card_romanset.resx">
-      <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>card_romanset.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="normal.resx">
-      <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>normal.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formMainForm.resx">
-      <DependentUpon>formMainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources NeroSet\01c.bmp" />
@@ -234,19 +133,6 @@
     <Content Include="Resources\13d.bmp" />
     <Content Include="Resources\13h.bmp" />
     <Content Include="Resources\13s.bmp" />
-    <None Include="Resources\bottom07.bmp" />
-    <None Include="Resources\bottom06.bmp" />
-    <None Include="Resources\bottom05.bmp" />
-    <None Include="Resources\bottom04.bmp" />
-    <None Include="Resources\bottom02.bmp" />
-    <None Include="Resources\bottom01.bmp" />
-    <None Include="Resources\back8.bmp" />
-    <None Include="Resources\Back7.bmp" />
-    <None Include="Resources\Back6.bmp" />
-    <None Include="Resources\Back5.bmp" />
-    <None Include="Resources\Back2.bmp" />
-    <None Include="Resources\Back1.bmp" />
-    <None Include="Resources\CardMask.bmp" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
