@@ -7,32 +7,26 @@ using System.Text;
 using System.Windows.Forms;
 using cardObjects;
 
-namespace BetterSpades.Net
-{
-    public partial class formMainForm : Form
-    {
+namespace BetterSpades.Net {
+    public partial class formMainForm : Form {
         private Deck fdeck = new Deck();
         private CardPlayerList fplayerlist = new CardPlayerList();
         private CardScores fcardscores = new CardScores();
 
-        public formMainForm()
-        {
+        public formMainForm() {
             InitializeComponent();
         }
 
-        private void formMainForm_Load(object sender, EventArgs e)
-        {
+        private void formMainForm_Load(object sender, EventArgs e) {
             CardPlayer n = null;
 
-            for (int i = 0; i < 4; i++)
-            {
+            for (int i = 0; i < 4; i++) {
                 n = new CardPlayer();
                 fplayerlist.AddPlayer(n);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e) {
             listBox5.Items.Clear();
 
             checkBox1.Checked = false;
@@ -45,7 +39,7 @@ namespace BetterSpades.Net
             checkBox7.Checked = false;
             checkBox8.Checked = false;
 
-            
+
             fdeck.Clear();
 
             listBox1.Items.Clear();
@@ -53,11 +47,10 @@ namespace BetterSpades.Net
             listBox3.Items.Clear();
             listBox4.Items.Clear();
 
-            for (int i = 0; i < 4; i++)
-            {
+            for (int i = 0; i < 4; i++) {
                 fplayerlist[i].ClearHand();
             }
-            
+
             fdeck.Deal(fplayerlist);
 
             fplayerlist[0].Hand.AllCardsOpen();
@@ -71,26 +64,23 @@ namespace BetterSpades.Net
 
             ListBox lb = null;
 
-            for (int x = 0; x < 4; x++)
-            {
-                switch (x)
-                {
-                    case 0 :
+            for (int x = 0; x < 4; x++) {
+                switch (x) {
+                    case 0:
                         lb = listBox1;
                         break;
-                    case 1 :
+                    case 1:
                         lb = listBox2;
                         break;
-                    case 2 :
+                    case 2:
                         lb = listBox3;
                         break;
-                    case 3 :
+                    case 3:
                         lb = listBox4;
                         break;
                 }
 
-                for (int t = 0; t < fplayerlist[x].HandCount; t++)
-                {
+                for (int t = 0; t < fplayerlist[x].HandCount; t++) {
                     lb.Items.Add(fplayerlist[x][t].ToString());
                 }
             }
@@ -123,7 +113,7 @@ namespace BetterSpades.Net
             tghCardHand4.Player = fplayerlist[3];
             tghCardHand4.Refresh();
 
-            listBox5.Items.Add(String.Format("Player 1 bids {0} - {1} - {2}", fplayerlist[0].EstimateTricks(), 
+            listBox5.Items.Add(String.Format("Player 1 bids {0} - {1} - {2}", fplayerlist[0].EstimateTricks(),
                 fplayerlist[0].EstimateTricks1(), fplayerlist[0].EstimateTricks2()));
             listBox5.Items.Add(String.Format("Player 2 bids {0} - {1} - {2}", fplayerlist[1].EstimateTricks(),
                 fplayerlist[1].EstimateTricks1(), fplayerlist[1].EstimateTricks2()));
@@ -133,46 +123,36 @@ namespace BetterSpades.Net
                 fplayerlist[3].EstimateTricks1(), fplayerlist[3].EstimateTricks2()));
         }
 
-        private void checkBox5_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!checkBox5.Checked)
-            {
+        private void checkBox5_CheckedChanged(object sender, EventArgs e) {
+            if (!checkBox5.Checked) {
                 tghCardHand1.Player.Hand.AllCardsOpen();
             }
-            else
-            {
+            else {
                 tghCardHand1.Player.Hand.AllCardsClosed();
             }
 
             tghCardHand1.Refresh();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) {
             int player;
             ListBox lb = null;
 
-            if (sender == checkBox1)
-            {
+            if (sender == checkBox1) {
                 player = 0;
                 lb = listBox1;
             }
-            else
-            {
-                if (sender == checkBox2)
-                {
+            else {
+                if (sender == checkBox2) {
                     player = 1;
                     lb = listBox2;
                 }
-                else
-                {
-                    if (sender == checkBox3)
-                    {
+                else {
+                    if (sender == checkBox3) {
                         player = 2;
                         lb = listBox3;
                     }
-                    else
-                    {
+                    else {
                         player = 3;
                         lb = listBox4;
                     }
@@ -180,12 +160,10 @@ namespace BetterSpades.Net
             }
 
 
-            if ((sender as CheckBox).Checked)
-            {
+            if ((sender as CheckBox).Checked) {
                 fplayerlist[player].Hand.SortOrder = CardSortOptions.Ascending;
             }
-            else
-            {
+            else {
                 fplayerlist[player].Hand.SortOrder = CardSortOptions.Descending;
             }
 
@@ -198,64 +176,52 @@ namespace BetterSpades.Net
 
             lb.Items.Clear();
 
-            
-            
-            for (int t = 0; t < fplayerlist[player].HandCount; t++)
-            {
+
+
+            for (int t = 0; t < fplayerlist[player].HandCount; t++) {
                 lb.Items.Add(fplayerlist[player][t].ToString());
             }
 
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+        private void button2_Click(object sender, EventArgs e) {
 
         }
 
-        private void checkBox6_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!checkBox6.Checked)
-            {
+        private void checkBox6_CheckedChanged(object sender, EventArgs e) {
+            if (!checkBox6.Checked) {
                 tghCardHand2.Player.Hand.AllCardsOpen();
             }
-            else
-            {
+            else {
                 tghCardHand2.Player.Hand.AllCardsClosed();
             }
             tghCardHand2.Refresh();
         }
 
-        private void checkBox7_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!checkBox7.Checked)
-            {
+        private void checkBox7_CheckedChanged(object sender, EventArgs e) {
+            if (!checkBox7.Checked) {
                 tghCardHand3.Player.Hand.AllCardsOpen();
             }
-            else
-            {
+            else {
                 tghCardHand3.Player.Hand.AllCardsClosed();
             }
 
             tghCardHand3.Refresh();
         }
 
-        private void checkBox8_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!checkBox8.Checked)
-            {
+        private void checkBox8_CheckedChanged(object sender, EventArgs e) {
+            if (!checkBox8.Checked) {
                 tghCardHand4.Player.Hand.AllCardsOpen();
             }
-            else
-            {
+            else {
                 tghCardHand4.Player.Hand.AllCardsClosed();
             }
 
             tghCardHand4.Refresh();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
+        private void button2_Click_1(object sender, EventArgs e) {
 
             GameTurn nt = new GameTurn();
 
@@ -270,15 +236,13 @@ namespace BetterSpades.Net
             tghCardTable1.Refresh();
         }
 
-        private void listBox5_DoubleClick(object sender, EventArgs e)
-        {
+        private void listBox5_DoubleClick(object sender, EventArgs e) {
             int i = listBox5.SelectedIndex;
 
             fplayerlist[i].EstimateTricks1();
         }
 
-        private void formMainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        private void formMainForm_FormClosing(object sender, FormClosingEventArgs e) {
             fcardscores.FileName = Application.StartupPath + "\\" + "aiscores.xml";
             fcardscores.SaveToXMLFile();
         }

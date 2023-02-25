@@ -8,11 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using cardObjects;
 
-namespace BetterSpades.Net
-{
+namespace BetterSpades.Net {
 
-    public partial class GraphicsCardHand : System.Windows.Forms.PictureBox
-    {
+    public partial class GraphicsCardHand : System.Windows.Forms.PictureBox {
 
         // private THand fhand = null;
         private CardPlayer fcardplayer = null;
@@ -20,59 +18,48 @@ namespace BetterSpades.Net
         private CardSet fcardset = CardSet.Default;
         private CardBacks fback = CardBacks.Clouds;
 
-        private void setCardSet(CardSet avalue)
-        {
+        private void setCardSet(CardSet avalue) {
             fcardset = avalue;
         }
 
 
-        public GraphicsCardHand()
-        {
+        public GraphicsCardHand() {
             InitializeComponent();
         }
 
-        public CardBacks CardBack
-        {
+        public CardBacks CardBack {
             get { return fback; }
-            set
-            {
+            set {
                 fback = value;
                 this.Refresh();
             }
         }
 
-        public CardPlayer Player
-        {
+        public CardPlayer Player {
             get { return fcardplayer; }
             set { fcardplayer = value; }
         }
 
-        public HandOrientiation Orientation
-        {
+        public HandOrientiation Orientation {
             get { return fhandorientation; }
             set { fhandorientation = value; }
         }
 
-        public CardSet CardSet
-        {
+        public CardSet CardSet {
             get { return fcardset; }
             set { fcardset = value; }
         }
 
-        private int findIndex(int xlocation, int ylocation)
-        {
+        private int findIndex(int xlocation, int ylocation) {
 
             int r = -1;
-            
 
-            for (int i = 0; i < fcardplayer.Hand.Count; i++)
-            {
+
+            for (int i = 0; i < fcardplayer.Hand.Count; i++) {
                 if ((xlocation >= fcardplayer.Hand[i].HitArea.X) &&
-                    (xlocation <= fcardplayer.Hand[i].HitArea.Right))
-                {
+                    (xlocation <= fcardplayer.Hand[i].HitArea.Right)) {
                     if ((ylocation >= fcardplayer.Hand[i].HitArea.Y) &&
-                        (ylocation <= fcardplayer.Hand[i].HitArea.Bottom))
-                    {
+                        (ylocation <= fcardplayer.Hand[i].HitArea.Bottom)) {
                         r = i;
                         break;
                     }
@@ -81,18 +68,14 @@ namespace BetterSpades.Net
             return r;
         }
 
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            if (fcardplayer.Hand != null)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
+        protected override void OnMouseUp(MouseEventArgs e) {
+            if (fcardplayer.Hand != null) {
+                if (e.Button == MouseButtons.Left) {
                     int i = findIndex(e.X, e.Y);
 
-                    if (i > -1)
-                    {
+                    if (i > -1) {
 
-                        this.fcardplayer.Hand[i].IsCardSelected = 
+                        this.fcardplayer.Hand[i].IsCardSelected =
                             !this.fcardplayer.Hand[i].IsCardSelected;
                         this.Refresh();
                     }
@@ -102,31 +85,24 @@ namespace BetterSpades.Net
             base.OnMouseUp(e);
         }
 
-        private int getHorizontalOverlap(int amt, int width)
-        {
+        private int getHorizontalOverlap(int amt, int width) {
             // shows one / fourth of the cards
             return (amt * width) - (amt * (width / 2)) - (amt * (width / 4));
         }
 
-        private int getVerticalOverlap(int amt, int height)
-        {
+        private int getVerticalOverlap(int amt, int height) {
             return (amt * height) - (amt * height / 2) - (amt * height / 4);
         }
 
-        protected override void OnPaint(PaintEventArgs pe)
-        {
+        protected override void OnPaint(PaintEventArgs pe) {
             base.OnPaint(pe);
 
-            if (fcardplayer != null)
-            {
-                if (fcardplayer.Hand != null)
-                {
+            if (fcardplayer != null) {
+                if (fcardplayer.Hand != null) {
                     pe.Graphics.Clear(this.BackColor);
-                    for (int i = 0; i < this.fcardplayer.Hand.Count; i++)
-                    {
-                        Bitmap p = CardFunctions.GetBitmapCard(this.fcardplayer.Hand[i], fcardset, fback);                        
-                        switch (this.Orientation)
-                        {
+                    for (int i = 0; i < this.fcardplayer.Hand.Count; i++) {
+                        Bitmap p = CardFunctions.GetBitmapCard(this.fcardplayer.Hand[i], fcardset, fback);
+                        switch (this.Orientation) {
                             case HandOrientiation.HandHorizontalUp:
                                 pe.Graphics.DrawImage(p,
                                     new Rectangle(getHorizontalOverlap(i, p.Width),
@@ -187,12 +163,11 @@ namespace BetterSpades.Net
 
                     }
                 }
-            }          
+            }
         }
     }
-    
-    public partial class GfxCardTable : System.Windows.Forms.PictureBox
-    {
+
+    public partial class GfxCardTable : System.Windows.Forms.PictureBox {
 
         private CardTable ftable = new CardTable();
 
@@ -202,35 +177,29 @@ namespace BetterSpades.Net
 
 
 
-        public GfxCardTable()
-        {           
+        public GfxCardTable() {
             InitializeComponent();
         }
 
-        public CardSet CardSet
-        {
+        public CardSet CardSet {
             get { return fcardset; }
             set { fcardset = value; }
         }
 
-        public CardTable CardTable
-        {
-            get { return ftable;}
+        public CardTable CardTable {
+            get { return ftable; }
             set { ftable = value; }
         }
 
-        public CardBacks CardBack
-        {
+        public CardBacks CardBack {
             get { return fback; }
-            set
-            {
+            set {
                 fback = value;
                 this.Refresh();
             }
         }
 
-        protected override void OnPaint(PaintEventArgs pe)
-        {
+        protected override void OnPaint(PaintEventArgs pe) {
 
             Size rsize = new Size();
             Point rpos = new Point();
@@ -241,12 +210,10 @@ namespace BetterSpades.Net
 
             GameTurn n = this.ftable.LastTurn;
 
-            if (n != null)
-            {
+            if (n != null) {
                 int startpos = ((int)n.StartingPlayer) - 1;
-                                           
-                foreach (Card i in n.CardList)
-                {
+
+                foreach (Card i in n.CardList) {
                     Bitmap p = CardFunctions.GetBitmapCard(i, fcardset, fback);
                     Rectangle nrect = new Rectangle();
 
@@ -255,18 +222,16 @@ namespace BetterSpades.Net
 
                     rsize.Height = p.Height;
                     rsize.Width = p.Width;
-                   
-                    if (p != null)
-                    {
 
-                        if (startpos == 4)
-                        {
+                    if (p != null) {
+
+                        if (startpos == 4) {
                             startpos = 0;
                         }
 
                         nrect = CardFunctions.RectangleTable(startpos, rpos, rsize);
 
-                        pe.Graphics.DrawImage(p,nrect);
+                        pe.Graphics.DrawImage(p, nrect);
                         startpos++;
                     }
 
@@ -276,22 +241,19 @@ namespace BetterSpades.Net
         }
     }
 
-    public enum HandOrientiation
-    {
+    public enum HandOrientiation {
         HandHorizontalUp = 0,
         HandVerticalLeft = 1,
         HandHorizontalDown = 2,
         HandVericalRight = 3
     }
 
-    public enum CardSet
-    {
+    public enum CardSet {
         Default = 0,
         Roman = 1
     }
 
-    public enum CardBacks
-    {
+    public enum CardBacks {
         Clouds = 0,
         Concentric = 1,
         BlueCross = 2,
@@ -300,14 +262,11 @@ namespace BetterSpades.Net
         MarbleStone = 5
     }
 
-    public static class CardFunctions
-    {
-        public static string GetCardChar(Card acard)
-        {
+    public static class CardFunctions {
+        public static string GetCardChar(Card acard) {
             string s = "";
 
-            switch (acard.Suit)
-            {
+            switch (acard.Suit) {
                 case Suit.Clubs:
                     s = "c";
                     break;
@@ -325,13 +284,11 @@ namespace BetterSpades.Net
             return ((int)acard.Value).ToString() + s;
         }
 
-        public static string GetCardBack(CardBacks acardback)
-        {
+        public static string GetCardBack(CardBacks acardback) {
             return acardback.ToString();
         }
 
-        public static Rectangle RectangleTable(int index, Point startpoint, Size asize)
-        {
+        public static Rectangle RectangleTable(int index, Point startpoint, Size asize) {
             Rectangle n = new Rectangle();
 
             //  Draw like:    []
@@ -339,30 +296,29 @@ namespace BetterSpades.Net
             //                [] 
             //  (With overlap)...
 
-            switch (index)
-            {
-                case 0 :
+            switch (index) {
+                case 0:
                     // North;
                     n.X = startpoint.X;
                     n.Y = startpoint.Y;
                     n.Width = asize.Width;
                     n.Height = asize.Height;
                     break;
-                case 1 :
+                case 1:
                     // East
                     n.X = startpoint.X + (asize.Width / 2);
                     n.Y = startpoint.Y + (asize.Height / 2);
                     n.Width = asize.Width;
                     n.Height = asize.Height;
                     break;
-                case 2 :
+                case 2:
                     // South
                     n.X = startpoint.X;
                     n.Y = startpoint.Y + (asize.Height / 2) * 2;
                     n.Width = asize.Width;
                     n.Height = asize.Height;
                     break;
-                case 3 :
+                case 3:
                     // West
                     n.X = startpoint.X - (asize.Width / 2);
                     n.Y = startpoint.Y + (asize.Height / 2);
@@ -374,16 +330,13 @@ namespace BetterSpades.Net
             return n;
         }
 
-        public static Bitmap GetBitmapCard(Card acard, CardSet acardset, CardBacks acardback)
-        {
+        public static Bitmap GetBitmapCard(Card acard, CardSet acardset, CardBacks acardback) {
             string s = "_" + CardFunctions.GetCardChar(acard);
 
             Bitmap nbitmap = null;
 
-            if (acard.IsCardOpen)
-            {
-                switch (acardset)
-                {
+            if (acard.IsCardOpen) {
+                switch (acardset) {
 
                     case CardSet.Default:
                         nbitmap = (Bitmap)
@@ -395,15 +348,14 @@ namespace BetterSpades.Net
                         break;
                 }
             }
-            else
-            {
+            else {
                 nbitmap = (Bitmap)BetterSpades.card_backs.ResourceManager.GetObject(
                     CardFunctions.GetCardBack(acardback)
                     );
             }
 
             return nbitmap;
-        }        
+        }
 
     }
 
