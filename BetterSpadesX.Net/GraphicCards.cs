@@ -144,7 +144,7 @@ namespace BetterSpades.Net {
                                       (i < this.fcardplayer.Hand.Count - 1) ? getHorizontalOverlap(1, p.Width) : p.Width,
                                     p.Height);
                                 break;
-                            case HandOrientiation.HandVericalRight:
+                            case HandOrientiation.HandVerticalRight:
 
                                 pe.Graphics.DrawImage(p,
                                     new Rectangle(this.fcardplayer.Hand[i].IsCardSelected ? 20 : 0,
@@ -245,7 +245,7 @@ namespace BetterSpades.Net {
         HandHorizontalUp = 0,
         HandVerticalLeft = 1,
         HandHorizontalDown = 2,
-        HandVericalRight = 3
+        HandVerticalRight = 3
     }
 
     public enum CardSet {

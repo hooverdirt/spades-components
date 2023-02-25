@@ -343,7 +343,7 @@ namespace BetterSpades.Net
             this.tghCardHand4.CardSet = BetterSpades.Net.CardSet.Default;
             this.tghCardHand4.Location = new System.Drawing.Point(12, 51);
             this.tghCardHand4.Name = "tghCardHand4";
-            this.tghCardHand4.Orientation = BetterSpades.Net.HandOrientiation.HandVericalRight;
+            this.tghCardHand4.Orientation = BetterSpades.Net.HandOrientiation.HandVerticalRight;
             this.tghCardHand4.Player = null;
             this.tghCardHand4.Size = new System.Drawing.Size(126, 396);
             this.tghCardHand4.TabIndex = 13;
